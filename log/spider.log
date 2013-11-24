@@ -2300,3 +2300,4 @@ AttributeError: 'dict' object has no attribute 'database'
 
 2013-11-15 14:52:53,727 Thread-4 WARNING Page not avaliable. Status code:503 URL: http://www.mininova.org/tor/13258218 
 
+2013-11-25 00:49:58,696 MainThread INFO the spider has been running!
