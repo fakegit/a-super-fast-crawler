@@ -1,4 +1,7 @@
-a-super-fast-crawler
-====================
+# 爬虫
 
-a crawler that should be fast/strong/tricky
+一个貌似很健壮的爬虫
+
+## TODO
+- add proxy support
+- add excetion control
