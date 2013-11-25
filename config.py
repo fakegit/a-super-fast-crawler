@@ -2,7 +2,7 @@
 # encoding: utf-8
 import os
 
-CURRENT_DIR = os.path.dirname(os.path.realpath(__file__))
+PROJECT_ROOT = os.path.dirname(os.path.realpath(__file__))
 
 MONGO_SETTINGS = {
     "host": "localhost",

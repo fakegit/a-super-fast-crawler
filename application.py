@@ -7,16 +7,15 @@ from Queue import Queue
 import util
 from crawler import Crawler
 from database import Database
-from logmanager import LogManager
+from logmanager import configLogger
 from spiders import mininova
-from config import CURRENT_DIR, MONGO_SETTINGS
+from config import PROJECT_ROOT, MONGO_SETTINGS
 from monitor import send_mail
 
 class SpiderManager(object):
     def __init__(self, spiders=None, db=None):
         try:
-            self.logger = LogManager(
-                logFile='spider.log', logLevel=5, logTree="spider").logger
+            self.logger = configLogger(logTree="spider")
         except:
             #TODO format the backtrace
             raise Exception, "can not init logger"
@@ -40,7 +39,7 @@ class SpiderManager(object):
             self.logger.error("spider cannot run.")
         finally:
             seed_num = self.database.db['seed'].count()
-            textfile = CURRENT_DIR + '/log/spider.log'
+            textfile = PROJECT_ROOT + '/log/spider.log'
             self.logger.info("now your seeds num is %s." % seed_num)
             try:
                 fp = open(textfile, 'rb')

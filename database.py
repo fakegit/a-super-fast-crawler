@@ -9,16 +9,18 @@
 
 from pymongo import Connection
 from pymongo.errors import ConnectionFailure
+
 from config import MONGO_SETTINGS
+from logmanager import configLogger
 
 class Database(object):
     def __init__(self, host=MONGO_SETTINGS["host"], port=MONGO_SETTINGS["port"], db=MONGO_SETTINGS["database"]):
         try:
             self.conn = Connection(host=host, port=port)
             self.db = self.conn[db]
-        except ConnectionFailure, e:
-            log.error("connection error")
-            self.conn = None
+            self.logger = configLogger(logTree="spider.database")
+        except ConnectionFailure:
+            raise ConnectionFailure
 
     def isConn(self):
         if self.conn:

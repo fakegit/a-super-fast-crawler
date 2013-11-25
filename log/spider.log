@@ -2301,3 +2301,17 @@ AttributeError: 'dict' object has no attribute 'database'
 2013-11-15 14:52:53,727 Thread-4 WARNING Page not avaliable. Status code:503 URL: http://www.mininova.org/tor/13258218 
 
 2013-11-25 00:49:58,696 MainThread INFO the spider has been running!
+2013-11-25 22:31:27,322 MainThread INFO the spider has been running!
+2013-11-25 22:31:43,368 Thread-1 INFO Depth 1 Finish. Total visited Links: 2
+
+2013-11-25 22:32:02,247 Thread-2 CRITICAL Traceback (most recent call last):
+  File "/Volumes/disk/codeIn/bt-share/a-super-fast-crawler/threadPool.py", line 40, in run
+    result = func(*args, **kargs)
+  File "/Volumes/disk/codeIn/bt-share/a-super-fast-crawler/crawler.py", line 120, in _taskHandler
+    self._callback_filter(webPage)
+  File "/Volumes/disk/codeIn/bt-share/a-super-fast-crawler/crawler.py", line 113, in _callback_filter
+    self.callbackFilter['func'](webPage)
+  File "/Volumes/disk/codeIn/bt-share/a-super-fast-crawler/spiders/mininova.py", line 56, in callback
+    database = Database(db=MONGO_SETTINGS.database)
+AttributeError: 'dict' object has no attribute 'database'
+
